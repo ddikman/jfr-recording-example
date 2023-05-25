@@ -2,10 +2,16 @@
 
 ## Running
 
+First build and run the application:
+
 ```shell
 javac LoopApplication.java
 java LoopApplication
 ```
+
+It will run until you cancel it with `Ctrl+C`, just looping a thread sleep with a random seconds wait.
+
+Then start the flight recording, making sure the `Uncategorized` events are recorded.
 
 ## Inspecting the events
 
