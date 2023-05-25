@@ -1,39 +1,11 @@
-import jdk.jfr.Configuration;
-import jdk.jfr.FlightRecorder;
 import jdk.jfr.Label;
-import jdk.jfr.Recording;
-import jdk.jfr.consumer.RecordedEvent;
-
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 import java.util.Random;
 import java.lang.management.ManagementFactory;
 
 public class LoopApplication {
     public static void main(String[] args) throws Exception {
-        // Configuration config = Configuration.getConfiguration("default");
-        // config.enable("ActionDurationEvent");
-
-        // Recording recording = new Recording(config);
-        // recording.start();
-
         LoopApplication loopApp = new LoopApplication();
         loopApp.runLoop();
-
-        // recording.stop();
-
-        // // Process the recorded events
-        // for (RecordedEvent event : recording.getEvents()) {
-        //     if (event.getEventType().getName().equals("ActionDurationEvent")) {
-        //         // Do something with the event data
-        //         String actionName = event.getString("actionName");
-        //         System.out.println("Action Name: " + actionName);
-        //         // You can access other attributes of the event if needed
-        //         // ...
-        //     }
-        // }
-
-        // recording.close();
     }
 
     private void runLoop() throws InterruptedException {
@@ -42,7 +14,7 @@ public class LoopApplication {
         System.out.println("Running in process with PID: " + processId);
 
         while (true) {
-            ActionDurationEvent event = new ActionDurationEvent("Custom event");
+            ActionDurationEvent event = new ActionDurationEvent("Action duration");
             event.begin();
 
             Random random = new Random();
